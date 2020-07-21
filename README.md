@@ -99,5 +99,38 @@ def next_item():
 注意点样图要清晰标准，余量充足
 
 
-# 数据解析为excel
-云平台返回的 json 数据，需要转换为json 数据
+# Json数据解析为excel
+
+阿里云平台返回的 json 数据，需要转换为excel数据
+
+ocr 返回的数据样式
+> {\"config_str\":"{\"template_id\":\"904652eb-6cad-4165-b3d4-daf4bef64e641594985084\"}","items":{"calorie":"49016","name":"小树树","odometer":"712.07"},"request_id":"20200718123753_a68106d905de2be307d75f29995f733c","success":true,"template_id":"904652eb-6cad-4165-b3d4-daf4bef64e641594985084"}"
+
+>需要的数据 {"calorie":"49016","name":"小树树","odometer":"712.07"}
+
+>将ocr 返回的 json  数据 处理成 列表形式 [{},{}]
+
+> 具体 代码 参考common\aliocr.py
+
+## 列表转成 excel 核心代码 
+```python 
+def jsonToexcel2(jsonfile):
+    print (jsonfile)
+    workbook = xlwt.Workbook()
+    sheet1 = workbook.add_sheet('s')
+    ll = list(jsonfile[0].keys())
+    for i in range(0,len(ll)):
+        sheet1.write(0,i,ll[i])
+    for j in range(0,len(jsonfile)):
+        m = 0
+        ls = list(jsonfile[j].values())
+        for k in ls:
+            sheet1.write(j+1,m,k)
+            m += 1
+    workbook.save('s2.xls')
+```
+#github  地址 欢迎 点击 star
+
+https://github.com/lumang/And-Bot
+
+感谢神奇战士的项目支持

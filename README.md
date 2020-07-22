@@ -87,12 +87,18 @@ def next_item():
 以阿里云为例
 
 1. 选择定位点，
+![创建](./screenshot/2.png)
+![新增图片](./screenshot/3.png)
+![选择定位点](./screenshot/4.png)
+
 
 2. 选择识别内容，
+![选择识别内容](./screenshot/5.png)
 
 3. 保存，
 
 4. 试一试，
+![创建](./screenshot/6.png)
 
 5. 发布生成模板id 
 
@@ -133,4 +139,4 @@ def jsonToexcel2(jsonfile):
 
 https://github.com/lumang/And-Bot
 
-感谢神奇战士的项目支持
+感谢神奇战士的项目（Douyin-Bot）启发
